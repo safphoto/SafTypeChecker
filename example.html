@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <title>Type Checker Examples</title>
+    <script type="text/javascript" src="./SafTypeChecker.js"></script>
+    <script type="application/x-javascript">
+        var initialViewer = true;
+        var typeChecker = SAF.TypeChecker;
+
+        var Logger = {};
+        Logger.LogToConsole = function (message) {
+            if (window.console && window.console.log)
+                window.console.log(message);
+        };
+
+        function pageLoaded() {
+            var viewer = document.getElementById("viewer");
+            viewer.innerHTML = "";
+
+            var ar1 = ["Saab", "Volvo", "BMW"];
+            var ar2 = new Array("Saab", "Volvo", "BMW");
+            var b = false;
+            var d = new Date();
+            var fnc = function () { return true; };
+            var n1 = null;
+            var n2 = 7;
+            var obj = new Object();
+            var reg = new RegExp();
+            var str = "I am a string";
+            var udef;
+
+            WriteToViewer("Is type: ", typeChecker.IsArray(ar1));
+            WriteToViewer("IsArray: ", typeChecker.IsArray(ar2));
+            WriteToViewer("IsBoolean: ", typeChecker.IsBoolean(b));
+            WriteToViewer("IsDate: ", typeChecker.IsDate(d));
+            WriteToViewer("IsFunction: ", typeChecker.IsFunction(fnc));
+            WriteToViewer("IsNull: ", typeChecker.IsNull(n1));
+            WriteToViewer("IsNumber: ", typeChecker.IsNumber(n2));
+            WriteToViewer("IsObject: ", typeChecker.IsObject(obj));
+            WriteToViewer("IsRegExp: ", typeChecker.IsRegExp(reg));
+            WriteToViewer("IsString: ", typeChecker.IsString(str));
+            WriteToViewer("IsUndefined: ", typeChecker.IsUndefined(udef));
+        };
+
+        function WriteToViewer(message, value) {
+            if (!initialViewer) {
+                var newLine = document.createElement("br");
+                viewer.appendChild(newLine);
+                var newMessage = document.createTextNode(message + ': ' + value);
+                viewer.appendChild(newMessage);
+            }
+            else {
+                viewer.innerHTML = message + ': ' + value;
+                initialViewer = false;
+            }
+        };
+    </script>
+</head>
+<body onload="pageLoaded()">
+<div id="viewer">
+    Testing . . .
+</div>
+</body>
+</html>
