@@ -77,7 +77,6 @@ SAF.TypeChecker = {};
      * @return {boolean}
      */
     checker.IsType = function(value, targetTypeString) {
-        //return typeof value === targetTypeString;
         var typeString = Object.prototype.toString.call(value).slice(8, -1);
         return typeString.toLowerCase() === targetTypeString.toLowerCase();
     };
