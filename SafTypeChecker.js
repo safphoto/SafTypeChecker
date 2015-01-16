@@ -1,10 +1,10 @@
-'use strict';
-
 var SAF = SAF || {};
 
 SAF.TypeChecker = {};
 
 (function(checker) {
+    'use strict';
+
     /**
      * @return {boolean}
      */
