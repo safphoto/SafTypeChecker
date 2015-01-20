@@ -80,6 +80,7 @@ SAF.TypeChecker = {};
      */
     checker.IsType = function(value, targetTypeString) {
         var typeString = Object.prototype.toString.call(value).slice(8, -1);
-        return typeString.toLowerCase() === targetTypeString.toLowerCase();
+        var re = new RegExp(targetTypeString, 'i');
+        return re.test(typeString);
     };
 }(SAF.TypeChecker));
