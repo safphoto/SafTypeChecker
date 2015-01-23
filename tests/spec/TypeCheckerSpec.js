@@ -4,36 +4,44 @@ describe("TypeChecker", function() {
   describe("When 'typeChecker.IsArray(value)' is checked", function() {
     var value1;
     var value2;
+    var value3;
 
     beforeEach(function() {
       value1 = ["Saab", "Volvo", "BMW"];
       value2 = 7;
+      value3 = {};
     });
 
     it("should return 'true' for arrays only", function() {
       var result1 = typeChecker.IsArray(value1);
       var result2 = typeChecker.IsArray(value2);
+      var result3 = typeChecker.IsArray(value3);
 
       expect(result1).toBeTruthy();
       expect(result2).toBeFalsy();
+      expect(result3).toBeFalsy();
     });
   });
 
   describe("When typeChecker.IsBoolean(value) is checked", function() {
     var value1;
     var value2;
+    var value3;
 
     beforeEach(function() {
       value1 = false;
       value2 = new Date();
+      value3 = 0;
     });
 
     it("should return 'true' for booleans only", function() {
       var result1 = typeChecker.IsBoolean(value1);
       var result2 = typeChecker.IsBoolean(value2);
+      var result3 = typeChecker.IsBoolean(value3);
 
       expect(result1).toBeTruthy();
       expect(result2).toBeFalsy();
+      expect(result3).toBeFalsy();
     });
   });
 
@@ -76,6 +84,7 @@ describe("TypeChecker", function() {
   describe("When 'typeChecker.IsNull(value)' is checked", function() {
     var value1;
     var value2;
+    var value3;
 
     beforeEach(function() {
       value1 = null;
@@ -85,9 +94,11 @@ describe("TypeChecker", function() {
     it("should return 'true' for Null values only", function() {
       var result1 = typeChecker.IsNull(value1);
       var result2 = typeChecker.IsNull(value2);
+      var result3 = typeChecker.IsNull(value3);
 
       expect(result1).toBeTruthy();
       expect(result2).toBeFalsy();
+      expect(result3).toBeFalsy();
     });
   });
 

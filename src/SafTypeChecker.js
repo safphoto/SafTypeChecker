@@ -1,3 +1,5 @@
+// Version: 0.10
+
 var SAF = SAF || {};
 
 SAF.TypeChecker = {};
